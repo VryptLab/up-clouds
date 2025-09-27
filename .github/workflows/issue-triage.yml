@@ -1,0 +1,36 @@
+name: "Issue Triage"
+
+on:
+  issues:
+    types: [opened, edited]
+
+permissions:
+  issues: write
+  contents: read
+
+jobs:
+  triage:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Add labels based on title
+        uses: actions-ecosystem/action-add-labels@v1
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          labels: |
+            bug:contains(bug), error, fail
+            enhancement:contains(feature), enhancement, request
+            question:contains(question), help
+            documentation:contains(doc), docs
+
+      - name: Welcome comment for new issues
+        if: github.event.action == 'opened'
+        uses: peter-evans/create-or-update-comment@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          issue-number: ${{ github.event.issue.number }}
+          body: |
+            Terima kasih sudah membuka issue! 🎉
+            Tim akan meninjaunya secepat mungkin.  
+            Mohon sertakan langkah reproduksi, versi Node/OS, dan screenshot (jika perlu).
