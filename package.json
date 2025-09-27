@@ -1,6 +1,6 @@
 {
   "name": "up-clouds",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "description": "A lightweight and extensible wrapper for uploading files to multiple file hosting services such as Catbox, Litterbox, and others. Designed for developers who need a unified, consistent, and easy-to-use interface for automated or programmatic file uploads.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
