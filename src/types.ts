@@ -2,6 +2,8 @@ export interface UploadResult {
   success: boolean;
   url?: string;
   error?: string;
+  expires?: number;
+  secret?: boolean;
 }
 
 export interface Uploader {

@@ -1,0 +1,28 @@
+# Source files
+src/
+tests/
+example/
+
+# Config files
+tsconfig.json
+jest.config.js
+
+# Environment & local
+.env
+.env.*
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# VCS & CI
+.git
+.github
+.gitignore
+
+# Dependency lock (opsional, tergantung preferensi)
+package-lock.json
+yarn.lock
+
+# Misc
+.DS_Store
