@@ -24,6 +24,12 @@ jobs:
           node-version: '20'
           registry-url: 'https://registry.npmjs.org/'
 
+      - name: Enable Corepack
+        run: |
+          corepack enable
+          corepack prepare yarn@4.9.2 --activate
+          yarn --version
+
       - name: Install deps
         run: yarn install --frozen-lockfile
 
@@ -40,5 +46,4 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
-          # check version & publish
           npm publish --access public
