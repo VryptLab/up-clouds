@@ -23,7 +23,7 @@ jobs:
           node-version: ${{ matrix.node }}
           cache: "npm"
       - name: Install deps
-        run: npm ci
+        run: yarn install --frozen-lockfile
       - name: Build
         run: npm run build --if-present
       - name: Lint
