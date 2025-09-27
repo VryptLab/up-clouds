@@ -2,6 +2,7 @@
 src/
 tests/
 example/
+.yarn/
 
 # Config files
 tsconfig.json
@@ -23,6 +24,6 @@ yarn-error.log*
 # Dependency lock (opsional, tergantung preferensi)
 package-lock.json
 yarn.lock
-
+.yarnrc.json
 # Misc
 .DS_Store
