@@ -21,3 +21,13 @@ export function getUploader(
       return null;
   }
 }
+
+export function getAllProviders(): Record<string, (filePath: string, opts?: any) => Promise<UploadResult>> {
+  return {
+    catbox: catboxUpload,
+    litterbox: litterboxUpload,
+    pomf: pomfUpload,
+    pomf2: pomfUpload,
+    zerox: zeroXUpload,
+  };
+}
