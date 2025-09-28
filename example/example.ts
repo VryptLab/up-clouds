@@ -6,6 +6,7 @@ import {
   pomfUpload,
   zeroXUpload,
   getUploader,
+  getAllProviders,
 } from "../src";
 import { UploadResult } from "../src/types";
 
@@ -51,14 +52,7 @@ Usage:
   return { testServices };
 }
 
-const uploaderMap: Record<string, (filePath: string) => Promise<UploadResult>> = {
-  catbox: (file) => catboxUpload(file),
-  litterbox: (file) => litterboxUpload(file, "24h"),
-  pomf: (file) => pomfUpload(file),
-  zerox: (file) => zeroXUpload(file),
-};
-
-async function runUploader(name: string, fn: (file: string) => Promise<UploadResult>) {
+async function runUploader(name: string, fn: (file: string, opts?: any) => Promise<UploadResult>) {
   console.log(`--- Running uploader: ${name} ---`);
   try {
     const res = await fn(DUMMY_FILE);
@@ -69,8 +63,10 @@ async function runUploader(name: string, fn: (file: string) => Promise<UploadRes
 }
 
 async function directUsage() {
-  console.log("=== Direct Upload Usage ===");
-  for (const [name, fn] of Object.entries(uploaderMap)) {
+  console.log("=== Direct Upload Usage via getAllProviders ===");
+  const allProviders = getAllProviders();
+
+  for (const [name, fn] of Object.entries(allProviders)) {
     await runUploader(name, fn);
   }
 }
@@ -91,9 +87,12 @@ async function viaGetUploader() {
 async function main() {
   const { testServices } = parseArgs();
   ensureDummyFile();
+
+  const allProviders = getAllProviders();
+
   if (testServices.length > 0) {
     for (const svc of testServices) {
-      const fn = uploaderMap[svc.toLowerCase()];
+      const fn = allProviders[svc.toLowerCase()];
       if (!fn) console.error(`Unknown uploader: '${svc}'`);
       else await runUploader(svc, fn);
     }
@@ -101,6 +100,7 @@ async function main() {
     await directUsage();
     await viaGetUploader();
   }
+
   cleanupDummyFile();
 }
 
