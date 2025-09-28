@@ -24,6 +24,6 @@ yarn-error.log*
 # Dependency lock (opsional, tergantung preferensi)
 package-lock.json
 yarn.lock
-.yarnrc.json
+.yarnrc.yml
 # Misc
 .DS_Store
