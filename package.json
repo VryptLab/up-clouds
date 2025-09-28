@@ -40,7 +40,8 @@
     "typescript": "^5.9.2"
   },
   "dependencies": {
-    "axios": "^1.12.2"
+    "axios": "^1.12.2",
+    "uuid": "^13.0.0"
   },
   "packageManager": "yarn@4.9.2"
 }

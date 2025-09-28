@@ -5,23 +5,23 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](./LICENSE)
 [![TypeScript](https://img.shields.io/badge/TypeScript-Ready-3178c6.svg?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 
-**up-clouds** adalah package Node.js/TypeScript untuk mengunggah file ke berbagai layanan *cloud file hosting* seperti **Catbox** dan **Litterbox**, dengan API yang konsisten, modular, dan mudah digunakan.
+**up-clouds** is a Node.js/TypeScript package for uploading files to various *cloud file hosting* services such as **Catbox** and **Litterbox**, with a consistent, modular, and easy-to-use API.
 
 ---
 
-## Instalasi
+## Installation
 
 ```bash
 npm install up-clouds
-# atau
+# or
 yarn add up-clouds
-# atau
+# or
 pnpm add up-clouds
 ```
 
 ---
 
-## Penggunaan
+## Usage
 
 ### Catbox
 ```ts
@@ -52,19 +52,19 @@ main();
 ## Providers
 
 ### Catbox
-- Upload permanen, cocok untuk file yang ingin disimpan jangka panjang.
+- Permanent upload, suitable for files intended for long-term storage.
 
 ### Litterbox
-- Upload sementara dengan opsi kedaluwarsa:  
-  - `1h` (1 jam)  
-  - `12h` (12 jam)  
-  - `24h` (1 hari)  
-  - `72h` (3 hari)  
+- Temporary upload with expiration options:  
+  - `1h` (1 hour)  
+  - `12h` (12 hours)  
+  - `24h` (1 day)  
+  - `72h` (3 days)  
 
 ### Pmof2 *(coming soon)*
-- Upload dengan fitur tambahan (akan tersedia pada rilis berikutnya).
+- Upload with additional features (available in a future release).
 
 ---
 
-## Lisensi
-Proyek ini dilisensikan di bawah [MIT License](./LICENSE).
+## License
+This project is licensed under the [MIT License](./LICENSE).
