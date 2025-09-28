@@ -43,7 +43,7 @@ export async function xeomsUpload(
       }
     }
 
-    return { success: false, error: "Unexpected response" };
+    return { success: false, error: "Unexpected response." };
   } catch (err: any) {
     return { success: false, error: err.message };
   }
