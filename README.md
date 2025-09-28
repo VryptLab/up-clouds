@@ -66,5 +66,7 @@ main();
 
 ---
 
+[English version](README_EN.md)
+
 ## Lisensi
 Proyek ini dilisensikan di bawah [MIT License](./LICENSE).
