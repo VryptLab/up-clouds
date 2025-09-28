@@ -1,8 +1,8 @@
 import { UploadResult } from "./types";
-import { catboxUpload, litterboxUpload, pomfUpload, zeroXUpload } from "./providers";
+import { catboxUpload, litterboxUpload, pomfUpload, zeroXUpload, xeomsUpload } from "./providers";
 
 export { UploadResult } from "./types";
-export { catboxUpload, litterboxUpload, pomfUpload, zeroXUpload } from "./providers";
+export { catboxUpload, litterboxUpload, pomfUpload, zeroXUpload, xeomsUpload} from "./providers";
 
 export function getUploader(
   service: string
@@ -17,6 +17,8 @@ export function getUploader(
       return pomfUpload;
     case "zerox":
       return zeroXUpload;
+    case "xeoms":
+      return xeomsUpload;
     default:
       return null;
   }
@@ -29,5 +31,6 @@ export function getAllProviders(): Record<string, (filePath: string, opts?: any)
     pomf: pomfUpload,
     pomf2: pomfUpload,
     zerox: zeroXUpload,
+    xeoms: xeomsUpload,
   };
 }
